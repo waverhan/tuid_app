@@ -182,6 +182,19 @@ Stay up to date with the latest business, economic, and bilateral trade news bet
 
 ---
 
+## 🎨 İkonlar ve Görsel Varlıklar (App Icons & Assets)
+
+Proje kök dizinindeki `AppIcons/` klasöründe yer alan kurumsal ikon paketi tüm platformlara entegre edilmiştir:
+
+- **iOS Asset Catalog (`ios/Runner/Assets.xcassets/AppIcon.appiconset/`):** iPhone ve iPad için 20px - 1024px arası tüm retina ve App Store ikonları eksiksiz yerleştirilmiştir.
+- **Android Launcher Mipmaps (`android/app/src/main/res/mipmap-*/`):** `mdpi`, `hdpi`, `xhdpi`, `xxhdpi`, `xxxhdpi` çözünürlüklerinde optimize `ic_launcher.png` ikonları tanımlanmıştır.
+- **Uygulama İçi Görseller (`assets/images/logo.png`):** Açılış ekranı (splash screen) ve sayfa geçiş animasyonunda bu yüksek çözünürlüklü vektörel tabanlı kurumsal logo kullanılmaktadır.
+- **Pazarlama Görselleri (`AppIcons/`):**
+  - `AppIcons/appstore.png`: Apple App Store (1024x1024)
+  - `AppIcons/playstore.png`: Google Play Store (512x512)
+
+---
+
 ## ⚙️ WordPress & Sunucu Önerileri
 
 Uygulamanın en yüksek hızda çalışması için sunucu tarafında şu yapılandırma önerilir:
