@@ -20,6 +20,15 @@ class _WebViewScreenState extends State<WebViewScreen>
   late final WebViewService _service;
   late AnimationController _pulseController;
   late Animation<double> _pulseAnimation;
+  int _selectedCategoryIndex = 0;
+
+  static const List<String> _categoryUrls = [
+    'https://tuid.org.ua',
+    'https://tuid.org.ua/category/gundem',
+    'https://tuid.org.ua/category/ekonomi-2',
+    'https://tuid.org.ua/category/dunya-2',
+    'https://tuid.org.ua/category/c20-news-from-tuid',
+  ];
 
   @override
   void initState() {
@@ -35,12 +44,46 @@ class _WebViewScreenState extends State<WebViewScreen>
     _pulseAnimation = Tween<double>(begin: 0.94, end: 1.05).animate(
       CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
     );
+
+    _service.currentUrlNotifier.addListener(_onUrlChanged);
+  }
+
+  void _onUrlChanged() {
+    final url = _service.currentUrlNotifier.value.toLowerCase();
+    int newIndex = _selectedCategoryIndex;
+    if (url.contains('/category/gundem')) {
+      newIndex = 1;
+    } else if (url.contains('/category/ekonomi')) {
+      newIndex = 2;
+    } else if (url.contains('/category/dunya')) {
+      newIndex = 3;
+    } else if (url.contains('/category/c20-news-from-tuid')) {
+      newIndex = 4;
+    } else if (url == 'https://tuid.org.ua' || url == 'https://tuid.org.ua/') {
+      newIndex = 0;
+    }
+
+    if (newIndex != _selectedCategoryIndex && mounted) {
+      setState(() {
+        _selectedCategoryIndex = newIndex;
+      });
+    }
   }
 
   @override
   void dispose() {
+    _service.currentUrlNotifier.removeListener(_onUrlChanged);
     _pulseController.dispose();
     super.dispose();
+  }
+
+  void _onCategoryTapped(int index) {
+    if (index < 0 || index >= _categoryUrls.length) return;
+    setState(() {
+      _selectedCategoryIndex = index;
+    });
+    _service.startPageLoadingManual();
+    _service.controller.loadRequest(Uri.parse(_categoryUrls[index]));
   }
 
   Future<void> _handleBackNavigation(bool didPop, dynamic result) async {
@@ -65,7 +108,7 @@ class _WebViewScreenState extends State<WebViewScreen>
         body: SafeArea(
           child: Stack(
             children: [
-              // Main WebView with Pull-to-Refresh
+              // Main News WebView with Pull-to-Refresh
               ValueListenableBuilder<bool>(
                 valueListenable: _service.hasErrorNotifier,
                 builder: (context, hasError, child) {
@@ -124,8 +167,6 @@ class _WebViewScreenState extends State<WebViewScreen>
                       child: ValueListenableBuilder<bool>(
                         valueListenable: _service.isInitialLoadDoneNotifier,
                         builder: (context, isInitialDone, _) {
-                          // If initial load is still underway, show full splash;
-                          // Otherwise show sleek page transition loading overlay
                           if (!isInitialDone) {
                             return _buildInitialSplashScreen();
                           } else {
@@ -140,11 +181,64 @@ class _WebViewScreenState extends State<WebViewScreen>
             ],
           ),
         ),
+        // Native Bottom News Category Bar
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.06),
+                blurRadius: 10,
+                offset: const Offset(0, -2),
+              ),
+            ],
+          ),
+          child: BottomNavigationBar(
+            currentIndex: _selectedCategoryIndex,
+            onTap: _onCategoryTapped,
+            backgroundColor: Colors.white,
+            selectedItemColor: const Color(0xFF0284C7),
+            unselectedItemColor: const Color(0xFF6B7280),
+            selectedFontSize: 11,
+            unselectedFontSize: 11,
+            selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
+            unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),
+            type: BottomNavigationBarType.fixed,
+            elevation: 0,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined),
+                activeIcon: Icon(Icons.home_rounded),
+                label: 'Manşet',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.newspaper_outlined),
+                activeIcon: Icon(Icons.newspaper_rounded),
+                label: 'Gündem',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.trending_up_outlined),
+                activeIcon: Icon(Icons.trending_up_rounded),
+                label: 'Ekonomi',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.public_outlined),
+                activeIcon: Icon(Icons.public_rounded),
+                label: 'Dünya',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.business_center_outlined),
+                activeIcon: Icon(Icons.business_center_rounded),
+                label: 'TUİD',
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 
-  /// Initial app launch splash screen
+  /// Initial app launch splash screen highlighting Ukraine News Portal identity
   Widget _buildInitialSplashScreen() {
     return Container(
       color: Colors.white,
@@ -186,27 +280,48 @@ class _WebViewScreenState extends State<WebViewScreen>
               ),
             ),
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: 24),
           const Text(
             'TUİD',
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 30,
               fontWeight: FontWeight.w900,
               letterSpacing: 2.5,
               color: Color(0xFF313B45),
             ),
           ),
           const SizedBox(height: 8),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+            decoration: BoxDecoration(
+              color: const Color(0xFF4DB2EC).withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: const Color(0xFF4DB2EC).withValues(alpha: 0.35),
+                width: 1,
+              ),
+            ),
+            child: const Text(
+              'UKRAYNA HABER PORTALI',
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.5,
+                color: Color(0xFF0284C7),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 32.0),
             child: Text(
-              'TÜRKİYE UKRAYNA İŞ İNSANLARI DERNEĞİ',
+              'Ukrayna\'dan Güncel Haberler, Ekonomi ve İş Dünyası',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 13,
                 fontWeight: FontWeight.w600,
-                letterSpacing: 1.2,
-                color: Color(0xFF6B7280),
+                letterSpacing: 0.3,
+                color: Color(0xFF4B5563),
               ),
             ),
           ),
@@ -232,7 +347,7 @@ class _WebViewScreenState extends State<WebViewScreen>
           ),
           const Spacer(flex: 4),
           const Text(
-            'tuid.org.ua',
+            'tuid.org.ua • Ukrayna Haber Merkezi',
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w500,
@@ -245,7 +360,7 @@ class _WebViewScreenState extends State<WebViewScreen>
     );
   }
 
-  /// Elegant loading effect shown when clicking on articles or navigating
+  /// Elegant loading effect shown when clicking on articles or categories
   Widget _buildPageTransitionLoader() {
     return Container(
       color: Colors.white.withValues(alpha: 0.94),
@@ -253,7 +368,7 @@ class _WebViewScreenState extends State<WebViewScreen>
       height: double.infinity,
       child: Center(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 28),
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 26),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -271,10 +386,9 @@ class _WebViewScreenState extends State<WebViewScreen>
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  // Circular loader around logo
                   const SizedBox(
-                    width: 72,
-                    height: 72,
+                    width: 70,
+                    height: 70,
                     child: CircularProgressIndicator(
                       strokeWidth: 3,
                       valueColor: AlwaysStoppedAnimation<Color>(
@@ -282,12 +396,11 @@ class _WebViewScreenState extends State<WebViewScreen>
                       ),
                     ),
                   ),
-                  // Centered TUİD logo badge
                   ScaleTransition(
                     scale: _pulseAnimation,
                     child: Container(
-                      width: 54,
-                      height: 54,
+                      width: 52,
+                      height: 52,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
@@ -310,9 +423,9 @@ class _WebViewScreenState extends State<WebViewScreen>
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 18),
               const Text(
-                'Sayfa Yükleniyor...',
+                'Haber Yükleniyor...',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -383,7 +496,7 @@ class _WebViewScreenState extends State<WebViewScreen>
               builder: (context, errorMsg, _) {
                 return Text(
                   errorMsg != null && errorMsg.isNotEmpty
-                      ? 'Sayfa yüklenirken bir sorun oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.'
+                      ? 'Haberler yüklenirken bir sorun oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.'
                       : 'İnternet bağlantınızı kontrol edip tekrar deneyin.',
                   style: TextStyle(
                     fontSize: 14,

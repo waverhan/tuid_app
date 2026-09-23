@@ -125,13 +125,14 @@
 ## 📋 Mağaza Bilgileri & Dokümantasyon (Store Metadata)
 
 ### 🏷️ Temel Bilgiler
-- **Uygulama Adı (App Name):** TUİD
-- **Tam Başlık:** TUİD - Türkiye Ukrayna İş İnsanları Derneği
+- **Apple App Store Başlığı (30 karakter):** `TUİD: Ukrayna Haberleri`
+- **Apple App Store Alt Başlık (30 karakter):** `Ukrayna Güncel Haber Portalı`
+- **Google Play Başlığı (50 karakter):** `TUİD - Ukrayna Haber Portalı & Güncel Haberler`
 - **Paket Kimlikleri:**
   - **iOS Bundle Identifier:** `ua.org.tuid.tuidApp`
   - **Android Application ID:** `ua.org.tuid.tuid_app`
-- **Birincil Kategori:** İş (Business)
-- **İkincil Kategori:** Haberler (News)
+- **Birincil Kategori (Primary Category):** Haberler (News)
+- **İkincil Kategori (Secondary Category):** İş (Business) / Gazeteler & Dergiler
 - **Yaş Sınırı:** 4+ (Tüm Yaş Grupları)
 - **Telif Hakkı:** © Türkiye Ukrayna İş İnsanları Derneği (TUİD)
 - **Destek / İletişim E-posta:** info@tuid.org.ua
@@ -142,42 +143,45 @@
 
 ### 📝 Mağaza Metinleri (Türkçe)
 
-#### Kısa Açıklama (Short Description - 80 karakter):
-> Türkiye ve Ukrayna arasındaki ticaret, iş dünyası ve güncel haberler.
+#### Kısa Açıklama (Google Play Short Description - 80 karakter):
+> Ukrayna'dan en son dakika haberleri, ekonomi, iş dünyası ve analizler.
 
 #### Detaylı Açıklama (Full Description):
 ```text
-Türkiye Ukrayna İş İnsanları Derneği (TUİD) Resmi Mobil Uygulaması
+Ukrayna'nın Nabzı Bu Uygulamada: TUİD Ukrayna Haber Portalı
 
-TUİD mobil uygulaması; Türkiye ile Ukrayna arasındaki ekonomik, ticari ve stratejik iş birliğini takip etmek isteyen iş insanları, yatırımcılar ve takipçiler için en güncel haberleri ve duyuruları tek bir çatı altında sunar.
+TUİD Mobil Uygulaması; Ukrayna'dan en güvenilir, güncel ve tarafsız haberleri anlık olarak cebinize getiren dijital haber platformudur. 
 
-Öne Çıkan Özellikler:
-• Son Dakika Haberleri: Ukrayna ve Türkiye gündemine dair en taze gelişmeler, analizler ve röportajlar.
-• İş Dünyası ve Ekonomi: İki ülke arasındaki yatırım fırsatları, ticaret hacmi ve sektörel raporlar.
-• Etkinlikler ve Duyurular: TUİD üyelerine özel etkinlikler, zirveler ve dernek faaliyetleri.
-• Akıcı Mobil Deneyim: Hızlı, kullanıcı dostu ve optimize edilmiş modern arayüz.
-• Doğrudan İletişim: Dernek merkezine tek dokunuşla e-posta ve telefon üzerinden ulaşabilme.
+Ukrayna gündemi, Kiev'den sıcak gelişmeler, savaş ve diplomasi trafiği, ekonomi, ticaret fırsatları ve iki ülke arasındaki stratejik ilişkiler artık parmaklarınızın ucunda!
 
-İki ülke arasındaki köprü olan TUİD'in resmi uygulaması ile iş dünyasının nabzını anlık olarak tutun!
+📰 Öne Çıkan Haber Kategorileri ve Özellikler:
+• Son Dakika & Gündem: Ukrayna'dan anlık gelişmeler, resmi açıklamalar, sahadan sıcak haberler ve analizler.
+• Ekonomi & Finans: Ukrayna pazarı, para birimi (Grivna/Dolar), tarım, enerji ve sektörel piyasa raporları.
+• Türkiye - Ukrayna İş Dünyası: Türk yatırımcılar, ihracat-ithalat fırsatları, lojistik ve Serbest Ticaret Anlaşması gelişmeleri.
+• Dünya & Diplomasi: Ukrayna'yı ilgilendiren küresel jeopolitik kararlar, AB ve NATO süreçleri.
+• Hızlı Kategori Gezinimi: Manşet, Gündem, Ekonomi, Dünya ve TUİD kategorilerine tek dokunuşla ulaşabilen modern alt gezinme menüsü.
+• Akıcı Okuma Deneyimi: Optimize edilmiş, resimleri anında açılan ve pil dostu modern haber arayüzü.
+
+Ukrayna'daki gelişmeleri ilk elden, güvenilir kaynaklardan ve Türkçe olarak takip etmek için TUİD Ukrayna Haber Portalı uygulamasını hemen indirin!
 ```
 
-#### Anahtar Kelimeler (Keywords - 100 karakter):
+#### Anahtar Kelimeler (App Store Keywords - 100 karakter):
 ```text
-tuid,ukrayna,türkiye,iş insanları,ticaret,kiev,ekonomi,yatırım,haberler,dernek,iş dünyası
+ukrayna haberleri,ukrayna son dakika,kiev,ukrayna ekonomi,ukrayna savaşı,tuid,ukrayna türkiye,haber portalı
 ```
 
 ---
 
-### 📝 Mağaza Metinleri (English / Ukrainian Context)
+### 📝 Mağaza Metinleri (English / International Context)
 
 #### Subtitle (30 chars):
-> Business & News in Ukraine
+> Ukraine News Portal & Business
 
 #### Description:
 ```text
-Official Mobile Application of the International Turkish Ukrainian Businessmen Association (TUİD).
+Stay Informed with the Premier Ukraine News Portal - TUİD Mobile.
 
-Stay up to date with the latest business, economic, and bilateral trade news between Turkey and Ukraine. Access in-depth market analysis, member announcements, economic summits, and investment opportunities directly on your mobile device.
+Get instant access to breaking news, economic reports, and daily developments from Ukraine. Powered by the International Turkish Ukrainian Businessmen Association (TUİD), this app delivers comprehensive coverage of Ukraine's politics, business landscape, bilateral trade, and market insights directly to your device.
 ```
 
 ---

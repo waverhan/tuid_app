@@ -18,6 +18,7 @@ class WebViewService {
   final ValueNotifier<String?> errorMessageNotifier = ValueNotifier<String?>(null);
   final ValueNotifier<bool> isInitialLoadDoneNotifier = ValueNotifier<bool>(false);
   final ValueNotifier<bool> isPageLoadingNotifier = ValueNotifier<bool>(true);
+  final ValueNotifier<String> currentUrlNotifier = ValueNotifier<String>(initialUrl);
 
   Timer? _safetyTimer;
 
@@ -273,6 +274,7 @@ class WebViewService {
           }
         },
         onPageStarted: (String url) {
+          currentUrlNotifier.value = url;
           _startPageLoading();
           hasErrorNotifier.value = false;
           errorMessageNotifier.value = null;
