@@ -1,41 +1,48 @@
-# TUİD Mobil Uygulaması
+# TUİD - Ukrayna Haber Portalı
 
 <p align="center">
-  <img src="assets/images/logo.png" width="120" height="120" alt="TUİD Logo" />
+  <img src="assets/images/logo.png" width="120" height="120" alt="TUİD Ukrayna Haber Portalı" />
 </p>
 
-<h3 align="center">Türkiye Ukrayna İş İnsanları Derneği Resmi Mobil Uygulaması</h3>
+<h3 align="center">Ukrayna'dan Güncel Haberler, Son Dakika Gelişmeleri ve Ekonomi Portalı</h3>
 
 <p align="center">
   <a href="https://flutter.dev"><img src="https://img.shields.io/badge/Flutter-3.29+-02569B?logo=flutter" alt="Flutter"></a>
   <a href="https://dart.dev"><img src="https://img.shields.io/badge/Dart-3.7+-0175C2?logo=dart" alt="Dart"></a>
   <img src="https://img.shields.io/badge/Platform-iOS%20%7C%20Android-4DB2EC" alt="Platform"></a>
+  <img src="https://img.shields.io/badge/Category-News%20%26%20Magazines-0284C7" alt="Category">
   <img src="https://img.shields.io/badge/License-Proprietary-red" alt="License">
 </p>
 
 ---
 
-## 📌 Proje Hakkında
+## 📌 Proje ve Portal Hakkında
 
-**TUİD Mobil**, Türkiye Ukrayna İş İnsanları Derneği'nin ([tuid.org.ua](https://tuid.org.ua)) resmi mobil uygulamasıdır. İki ülke arasındaki ticari, ekonomik ve kültürel ilişkileri güçlendirmek; iş insanlarına güncel haberleri, duyuruları, etkinlikleri ve analizleri kesintisiz, hızlı ve modern bir mobil arayüzle sunmak amacıyla Flutter teknolojisiyle geliştirilmiştir.
+**TUİD Mobil**, Ukrayna ile ilgili en güncel haberleri, son dakika gelişmelerini, savaş ve diplomasi trafiğini, ekonomi verilerini ve Türk-Ukrayna iş dünyasını anlık olarak takip etmek isteyenler için geliştirilmiş **Ukrayna Türkçe Haber Portalı** resmi mobil uygulamasıdır.
+
+Uygulama, [tuid.org.ua](https://tuid.org.ua) haber merkezinin yayın akışını modern mobil teknolojilerle birleştirerek okuyuculara en hızlı, güvenilir ve tarafsız Ukrayna haber akışını sunar.
 
 ---
 
-## 🚀 Öne Çıkan Özellikler
+## 🚀 Haber Portalı Özellikleri
 
-- **⚡ Erken Başlatma (Pre-warming):** Uygulama başlatılır başlatılmaz (`main()`) WebView controller devreye girer ve ağ isteklerini arka planda başlatır.
-- **🎯 Tahmine Dayalı Önbellekleme (Predictive Prefetch Engine):**
-  - Kullanıcı bir habere dokunduğu anda (`touchstart`), `click` olayı beklenmeden sayfa HTTP önbelleğine çekilir (~200ms kazanç).
-  - Boşta kalındığında ekranda görünen haber linkleri arka planda sessizce önbelleğe alınır.
-- **🖼️ Anında Resim Çözücü (Instant Image Hydration):** 
-  - WordPress Newspaper temasının `data-img-url` ve `data-src` kullanan haber kartları ekranda kaydırma beklemeden anında doldurulur. Boş gri kutular tamamen engellenir.
-- **✨ Şık Sayfa Geçiş Efekti (Fast Transition Loader):**
-  - Sayfalar arası geçişlerde TUİD logolu, modern mavi halka göstergeli, kullanıcıyı asla bekletmeyen (maks. 1.2s limitli, DOM hazır olduğunda ~400ms'de açılan) akıcı geçiş animasyonu.
-- **📱 iOS WebKit bfcache & Kenar Kaydırma:**
-  - `setAllowsBackForwardNavigationGestures` ile sol kenardan kaydırılarak geri gidildiğinde önceki sayfa **0 milisaniyede** hafızadan gelir.
-- **🔄 Aşağı Çekerek Yenileme (Pull-to-Refresh):** Standart mobil kullanıcı deneyimiyle sayfayı kolayca tazeleyebilme.
-- **🌐 Akıllı Protokol Yönlendirme:** Telefon (`tel:`), e-posta (`mailto:`), SMS (`sms:`), WhatsApp (`whatsapp:`) ve Telegram (`tg:`) bağlantılarını doğrudan cihazın yerel uygulamalarında açar.
-- **🛡️ Çevrimdışı / Hata Yönetimi:** İnternet kesintilerinde modern, kurumsal tasarımlı "Yeniden Dene" ekranı.
+- **📰 Ukrayna Son Dakika & Gündem:** Kiev, Lviv, Odesa, Harkiv ve cephe hattından anlık sıcak haberler ve flaş gelişmeler.
+- **📈 Ekonomi, Piyasa ve Finans:** Ukrayna Grivnası (UAH), döviz kurları, tahıl koridoru, enerji sektörü, yatırım teşvikleri ve ekonomik analizler.
+- **🤝 Türkiye - Ukrayna İş Dünyası:** İki ülke arasındaki ticaret hacmi, Serbest Ticaret Anlaşması (STA), Türk şirketlerinin yatırımları ve lojistik haberleri.
+- **🌐 Dünya & Jeopolitika:** Ukrayna'yı ilgilendiren uluslararası zirveler, AB, NATO, BM kararları ve stratejik raporlar.
+- **🧭 Hızlı Kategori Gezinimi (Native Bottom Bar):**
+  - 🏠 **Manşet:** Günün en önemli manşet ve öne çıkan haberleri
+  - 📰 **Gündem:** Siyaset, kamuoyu ve son dakika gelişmeleri
+  - 📈 **Ekonomi:** Finans, yatırım ve piyasa haberleri
+  - 🌐 **Dünya:** Küresel diplomasi ve dış politika
+  - 💼 **TUİD:** İş insanları derneği, üyeler ve kurumsal haberler
+- **⚡ Ultra Hızlı WebView Mimarisi (Pre-warming):** Uygulama açıldığı anda arka planda bağlantı kurularak haberlerin anında açılması sağlanır.
+- **🎯 Tahmine Dayalı Önbellekleme (Predictive Prefetch Engine):** Habere dokunulduğu milisaniyede (`touchstart`) sayfa indirilmeye başlar; tıklandığında bekleme süresi ortadan kalkar.
+- **🖼️ Anında Resim Çözücü (Instant Image Hydration):** WordPress Newspaper temasının tüm görsel kartları taranarak fotoğraflar anında yüklenir. Boş gri kutular engellenir.
+- **✨ Seri Sayfa Geçiş Animasyonu:** Tıklanan haberlerin içeriği arka planda hazırlandığı anda (~400ms) pürüzsüzce ekrana gelir.
+- **📱 iOS WebKit bfcache & Jest Desteği:** Sol kenardan kaydırılarak geri gidildiğinde önceki haber **0 milisaniyede** hafızadan anında gelir.
+- **🔄 Aşağı Çekerek Yenileme (Pull-to-Refresh):** Son dakika haber akışını aşağı kaydırarak anında güncelleme imkanı.
+- **📞 Entegre İletişim Protokolleri:** `tel:`, `mailto:`, `whatsapp:`, `tg:` ve `sms:` linkleri doğrudan cihazın yerel uygulamalarında açılır.
 
 ---
 
@@ -89,18 +96,18 @@
 ### 🤖 Android (Google Play Store)
 
 1. **İmzalama Anahtarı (Keystore) Hazırlığı:**
-   - `android/key.properties` dosyası oluşturun ve anahtar bilgilerinizi tanımlayın.
+   - `android/key.properties` dosyası oluşturun ve imza bilgilerinizi ekleyin.
 2. **App Bundle (AAB) Oluşturma:**
    ```bash
    flutter build appbundle --release
    ```
-   Çıktı dosyası: `build/app/outputs/bundle/release/app-release.aab`
+   Çıktı: `build/app/outputs/bundle/release/app-release.aab`
 
-3. **Alternatif APK Oluşturma:**
+3. **APK Oluşturma:**
    ```bash
    flutter build apk --release
    ```
-   Çıktı dosyası: `build/app/outputs/flutter-apk/app-release.apk`
+   Çıktı: `build/app/outputs/flutter-apk/app-release.apk`
 
 ---
 
@@ -111,77 +118,93 @@
    open ios/Runner.xcworkspace
    ```
 2. **Signing & Capabilities:**
-   - Xcode üzerinden Apple Developer hesabınızla giriş yapın.
-   - *Signing & Capabilities* sekmesinde Team ve Bundle Identifier (`ua.org.tuid.tuidApp`) ayarlarını doğrulayın.
+   - Apple Developer hesabınızı seçin, Bundle Identifier (`ua.org.tuid.tuidApp`) kontrolünü yapın.
 3. **Release IPA Oluşturma:**
    ```bash
    flutter build ipa --release
    ```
 4. **App Store Connect'e Yükleme:**
-   - `build/ios/ipa` klasöründeki dosyayı Xcode Organizer veya Transporter uygulamasıyla App Store Connect'e yükleyin.
+   - `build/ios/ipa` dizinindeki arşivi Transporter uygulaması veya Xcode Organizer ile yükleyin.
 
 ---
 
-## 📋 Mağaza Bilgileri & Dokümantasyon (Store Metadata)
+## 📋 Mağaza Bilgileri & ASO Dokümantasyonu (Store Metadata)
 
-### 🏷️ Temel Bilgiler
+### 🏷️ Temel Başlık ve Kategori Bilgileri
 - **Apple App Store Başlığı (30 karakter):** `TUİD: Ukrayna Haberleri`
 - **Apple App Store Alt Başlık (30 karakter):** `Ukrayna Güncel Haber Portalı`
 - **Google Play Başlığı (50 karakter):** `TUİD - Ukrayna Haber Portalı & Güncel Haberler`
 - **Paket Kimlikleri:**
   - **iOS Bundle Identifier:** `ua.org.tuid.tuidApp`
   - **Android Application ID:** `ua.org.tuid.tuid_app`
-- **Birincil Kategori (Primary Category):** Haberler (News)
-- **İkincil Kategori (Secondary Category):** İş (Business) / Gazeteler & Dergiler
+- **Birincil Kategori (Primary):** Haberler ve Dergiler (News & Magazines)
+- **İkincil Kategori (Secondary):** İş Dünyası (Business)
 - **Yaş Sınırı:** 4+ (Tüm Yaş Grupları)
 - **Telif Hakkı:** © Türkiye Ukrayna İş İnsanları Derneği (TUİD)
-- **Destek / İletişim E-posta:** info@tuid.org.ua
+- **İletişim / Destek:** info@tuid.org.ua
 - **Web Sitesi:** [https://tuid.org.ua](https://tuid.org.ua)
 - **Gizlilik Politikası:** [https://tuid.org.ua/gizlilik-politikasi](https://tuid.org.ua/gizlilik-politikasi)
 
 ---
 
-### 📝 Mağaza Metinleri (Türkçe)
+### 📝 Mağaza Tanıtım Metinleri (Türkçe)
 
-#### Kısa Açıklama (Google Play Short Description - 80 karakter):
-> Ukrayna'dan en son dakika haberleri, ekonomi, iş dünyası ve analizler.
+#### 🔹 Google Play Kısa Açıklama (Short Description - 80 karakter):
+> Ukrayna'dan en güncel son dakika haberleri, ekonomi, iş dünyası ve analizler.
 
-#### Detaylı Açıklama (Full Description):
+#### 🔹 Apple App Store Tanıtım Metni (Promotional Text - 170 karakter):
+> Ukrayna gündemi cebinizde! Kiev'den son dakika gelişmeler, savaş ve diplomasi haberleri, piyasa analizleri ve Türk-Ukrayna iş dünyası TUİD Haber Portalı'nda.
+
+#### 🔹 Detaylı Mağaza Açıklaması (Full Description):
 ```text
 Ukrayna'nın Nabzı Bu Uygulamada: TUİD Ukrayna Haber Portalı
 
-TUİD Mobil Uygulaması; Ukrayna'dan en güvenilir, güncel ve tarafsız haberleri anlık olarak cebinize getiren dijital haber platformudur. 
+Ukrayna ile ilgili en güvenilir, tarafsız ve son dakika haberleri anında takip etmek artık çok kolay! TUİD Mobil Uygulaması, Ukrayna'dan güncel gelişmeleri, sıcak haber başlıklarını ve derinlemesine ekonomik analizleri tek bir çatı altında sunan resmi dijital haber portalıdır.
 
-Ukrayna gündemi, Kiev'den sıcak gelişmeler, savaş ve diplomasi trafiği, ekonomi, ticaret fırsatları ve iki ülke arasındaki stratejik ilişkiler artık parmaklarınızın ucunda!
+Kiev başta olmak üzere Ukrayna'nın tüm şehirlerinden gelişmeler, savaş ve diplomasi trafiği, yeniden imar süreçleri, ticaret fırsatları ve iki ülke arasındaki stratejik ilişkiler artık parmaklarınızın ucunda.
 
 📰 Öne Çıkan Haber Kategorileri ve Özellikler:
-• Son Dakika & Gündem: Ukrayna'dan anlık gelişmeler, resmi açıklamalar, sahadan sıcak haberler ve analizler.
-• Ekonomi & Finans: Ukrayna pazarı, para birimi (Grivna/Dolar), tarım, enerji ve sektörel piyasa raporları.
-• Türkiye - Ukrayna İş Dünyası: Türk yatırımcılar, ihracat-ithalat fırsatları, lojistik ve Serbest Ticaret Anlaşması gelişmeleri.
-• Dünya & Diplomasi: Ukrayna'yı ilgilendiren küresel jeopolitik kararlar, AB ve NATO süreçleri.
-• Hızlı Kategori Gezinimi: Manşet, Gündem, Ekonomi, Dünya ve TUİD kategorilerine tek dokunuşla ulaşabilen modern alt gezinme menüsü.
-• Akıcı Okuma Deneyimi: Optimize edilmiş, resimleri anında açılan ve pil dostu modern haber arayüzü.
 
-Ukrayna'daki gelişmeleri ilk elden, güvenilir kaynaklardan ve Türkçe olarak takip etmek için TUİD Ukrayna Haber Portalı uygulamasını hemen indirin!
+• 🔴 Ukrayna Son Dakika & Flaş Gelişmeler: Sahadan en sıcak haberler, resmi açıklamalar, güvenlik durumları ve anlık bildirimler.
+• 📊 Ekonomi & Finans Portalı: Ukrayna Grivnası (UAH), enflasyon, tarım, enerji, lojistik ve sektörel piyasa raporları.
+• 🤝 Türk - Ukrayna İş Dünyası: İki ülke arasındaki yatırım fırsatları, Serbest Ticaret Anlaşması (STA) süreçleri, Türk iş insanlarının faaliyetleri ve başarı hikayeleri.
+• 🌍 Dünya & Uluslararası Diplomasi: AB, NATO, BM ekseninde Ukrayna'yı ilgilendiren küresel jeopolitik kararlar ve müzakereler.
+• 📑 Röportajlar & Özel Analizler: Alanında uzman isimlerle yapılmış özel röportajlar, makaleler ve köşe yazıları.
+• 🧭 Hızlı Kategori Menüsü: Manşet, Gündem, Ekonomi, Dünya ve TUİD kategorilerine tek dokunuşla ulaşabilen modern alt gezinme çubuğu.
+• ⚡ Hızlı ve Akıcı Haber Deneyimi: Resimleri anında yüklenen, veri tasarrufu sağlayan ve pil dostu modern arayüz.
+
+Ukrayna'daki tüm gelişmeleri ilk elden, güvenilir kaynaklardan ve Türkçe olarak takip etmek için TUİD Ukrayna Haber Portalı uygulamasını hemen indirin!
 ```
 
-#### Anahtar Kelimeler (App Store Keywords - 100 karakter):
+#### 🔹 Anahtar Kelimeler (App Store Keywords - 100 karakter):
 ```text
 ukrayna haberleri,ukrayna son dakika,kiev,ukrayna ekonomi,ukrayna savaşı,tuid,ukrayna türkiye,haber portalı
 ```
 
 ---
 
-### 📝 Mağaza Metinleri (English / International Context)
+### 📝 Mağaza Tanıtım Metinleri (English / International Context)
 
-#### Subtitle (30 chars):
+#### 🔹 Subtitle (30 chars):
 > Ukraine News Portal & Business
 
-#### Description:
-```text
-Stay Informed with the Premier Ukraine News Portal - TUİD Mobile.
+#### 🔹 Short Description (80 chars):
+> Breaking news, business, and daily economic updates from Ukraine.
 
-Get instant access to breaking news, economic reports, and daily developments from Ukraine. Powered by the International Turkish Ukrainian Businessmen Association (TUİD), this app delivers comprehensive coverage of Ukraine's politics, business landscape, bilateral trade, and market insights directly to your device.
+#### 🔹 Full Description:
+```text
+Stay Informed with the Premier Ukraine News Portal: TUİD Mobile
+
+TUİD Mobile is your essential news and intelligence portal for Ukraine. Covering politics, daily business news, economic developments, bilateral trade relations, and key geopolitical events, this app brings Ukraine's heartbeat directly to your mobile device.
+
+Key Features:
+• Breaking News & Daily Briefings: Real-time updates from Kyiv, Odesa, Lviv, and across the country.
+• Business & Economics: In-depth coverage of the Ukrainian market, agriculture, logistics, and Free Trade Agreement (FTA) updates.
+• Bilateral Relations: Insights into Turkish-Ukrainian economic partnerships and investor opportunities.
+• Intuitive Categories: Instant access to Top Stories, Economy, World Diplomacy, and Business community news via a sleek bottom navigation bar.
+• High Performance: Fast-loading articles, optimized media, and a modern reading experience.
+
+Download the TUİD Ukraine News Portal app today and stay ahead with reliable, first-hand news!
 ```
 
 ---
@@ -201,7 +224,7 @@ Proje kök dizinindeki `AppIcons/` klasöründe yer alan kurumsal ikon paketi t�
 
 ## ⚙️ WordPress & Sunucu Önerileri
 
-Uygulamanın en yüksek hızda çalışması için sunucu tarafında şu yapılandırma önerilir:
+Haber portalının en yüksek hızda çalışması için sunucu tarafında şu yapılandırma önerilir:
 
 1. **Önbellekleme:** **WP Super Cache** + **Cloudflare** birlikte kullanılmalıdır.
 2. **Tema Uyumu:** *Newspaper Theme Panel > General Features > Image loading* ayarı `Normal` yapılmalıdır.
