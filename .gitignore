@@ -4,6 +4,9 @@
 *.pyc
 *.swp
 .DS_Store
+._*
+.Spotlight-V100
+.Trashes
 .atom/
 .build/
 .buildlog/
@@ -18,10 +21,8 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# Visual Studio Code
+.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -43,3 +44,29 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Security & Signing (Keystores, Secrets, Certificates, Private Keys)
+# Never publicly commit signing keys or environment files!
+key.properties
+**/*.keystore
+**/*.jks
+**/*.p12
+**/*.cer
+**/*.p8
+**/*.mobileprovision
+*.key
+*.pem
+*.certificate
+local.properties
+.env
+.env.*
+!.env.example
+
+# Firebase & Cloud API configs
+google-services.json
+GoogleService-Info.plist
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
